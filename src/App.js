@@ -65,7 +65,7 @@ useEffect(()=>{
   })
 
 
-const pMessage = `Dear ${entity.name},%0D%0A%0D%0A
+const pMessage = `Dear Professor ${entity.name},%0D%0A%0D%0A
 
 I’m ${myName} from The HooHacks Team, and I would greatly appreciate it if you would take the time to share this wonderful opportunity with your students in ${entity.class}.%0D%0A%0D%0A
 
