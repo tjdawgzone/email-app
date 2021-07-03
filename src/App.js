@@ -21,15 +21,23 @@ useEffect(()=>{
     complete: function(results) {
       const array = [];
       results.data.splice(0,1)
-      results.data.forEach((entity)=>{
+      console.log(results.data)
+      results.data.forEach((entity,index)=>{
+      if(results.data[index-1]&&(results.data[index-1][1]===entity[1])){
+        console.log(array)
+        array[array.length-1].class.push(entity[2])
+      }
+      else{
         const newEntity={
           type:entity[0],
           name:entity[1],
-          class:entity[2],
+          class:[entity[2]], 
           email:entity[3]
         }
         array.push(newEntity);
+      }
       })
+      console.log(array)
       const array1 = clone(array)
       const array2 = clone(array)
       const array3 = clone(array)
@@ -57,17 +65,43 @@ useEffect(()=>{
         else if(type==="email")
         entity.label=entity.email;
         else
-        entity.label=entity.class;
+        entity.label=formatArray(entity.class);
 
         newArray.push(entity);
       })
       return newArray;
   })
 
+  const formatArray = ((array)=>{
+    if(array.length===1)
+    return array[0]
+    else if(array.length===2){
+    console.log(array[0]+" and "+array[1])
+    return array[0]+" and "+array[1]
+    }
+    else{
+      let result = ""
+    for(let x=0;x<array.length;x++){
+      if(x===array.length-1){
+        result = result+" and "+array[x]
+      }
+      else if(x===0){
+        result = result + array[0]
+      }
+      else{
+        result = result + " " + array[x] + ","
+      }
+      console.log(result)
+      return result
+    }     
+    }
+  })
 
-const pMessage = `Dear Professor ${entity.name},%0D%0A%0D%0A
 
-I’m ${myName} from The HooHacks Team, and I would greatly appreciate it if you would take the time to share this wonderful opportunity with your students in ${entity.class}.%0D%0A%0D%0A
+
+const pMessage = `Dear Professor ${entity.name.split(' ').pop()},%0D%0A%0D%0A
+
+I’m ${myName} from The HooHacks Team, and I would greatly appreciate it if you would take the time to share this wonderful opportunity with your students in ${formatArray(entity.class)}.%0D%0A%0D%0A
 
 Due to the recent surge in COVID-19 cases in parts of the world such as India, Argentina, and more, The HooHacks Team feels compelled to contribute its resources and platform to combatting the pandemic.  
 This is why we are introducing HooHacks for Humanity: COVID-19, a virtual hackathon and ideathon hybrid event from July 25-31 that serves as a platform for students from all academic backgrounds to utilize their creativity and problem solving abilities to solve/alleviate issues relating to COVID-19.  
@@ -124,7 +158,7 @@ ${myName}
         console.log('Option selected:', selectedOption)
       }} options={entitiesByEmail} />
       <h2 style={{fontWeight:"300"}}>Class List:</h2>
-      <Select value={entity&&{label:entity.class}} onChange={(selectedOption)=>{
+      <Select value={entity&&{label:formatArray(entity.class)}} onChange={(selectedOption)=>{
         setEntity(selectedOption);
         console.log('Option selected:', selectedOption)
       }} options={entitiesByClass} />
