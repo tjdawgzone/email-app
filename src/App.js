@@ -97,7 +97,7 @@ useEffect(()=>{
     }
   })
 
-
+// Professor Version
 
 const pMessage = `Dear Professor ${entity.name.split(' ').pop()},%0D%0A%0D%0A
 
@@ -110,14 +110,15 @@ Solutions could attempt to resolve problems like the efficiency of vaccine distr
 We will have multiple incredible guest speakers at this event and also mentors that will provide valuable guidance to teams as they formulate their solutions.  
 In addition, the best ideas and solution implementations will win prizes and cash funding!%0D%0A%0D%0A
 
-You can sign up today at this link:%0D%0A%0D%0A
-Learn more about the hackathon at:%0D%0A%0D%0A
+You can sign up today at this link: https://humanity.hoohacks.io/apply %0D%0A%0D%0A
+Learn more about the hackathon at: https://humanity.hoohacks.io/ %0D%0A%0D%0A
 
 Again, thank you for sharing this meaningful opportunity with everyone!  We hope to see everyone there.%0D%0A%0D%0A
 
 Sincerely,%0D%0A
 ${myName}`
 
+// Organnization Version
 
 const oMessage = `Dear ${entity.name},%0D%0A%0D%0A
 
@@ -130,8 +131,8 @@ Solutions could attempt to resolve problems like the efficiency of vaccine distr
 We will have multiple incredible guest speakers at this event and also mentors that will provide valuable guidance to teams as they formulate their solutions.  
 In addition, the best ideas and solution implementations will win prizes and cash funding!%0D%0A%0D%0A
 
-You can sign up today at this link:%0D%0A%0D%0A
-Learn more about the hackathon at:%0D%0A%0D%0A
+You can sign up today at this link: https://humanity.hoohacks.io/apply %0D%0A%0D%0A
+Learn more about the hackathon at: https://humanity.hoohacks.io/ %0D%0A%0D%0A
 
 Again, thank you for sharing this meaningful opportunity with everyone!  We hope to see everyone there.%0D%0A%0D%0A
 
