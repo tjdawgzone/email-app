@@ -50,7 +50,7 @@ useEffect(()=>{
 
   const sendEmail = (()=>{
     if(entity.type==="professor"){
-      window.location.href = "mailto:"+entity.email+"?subject=HooHacks For Humanity: Covid-19&body="+pMessage;
+      window.location.href = "mailto:"+entity.email+"?subject=HooHacks For Humanity: COVID-19&body="+pMessage;
     }
     else{
       window.location.href = "mailto:"+entity.email+"?subject=HooHacks For Humanity&body="+oMessage;
