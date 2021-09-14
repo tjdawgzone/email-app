@@ -122,6 +122,7 @@ ${myName}
 
 
 // Organization Message Version
+// Not updated since HooHacks for Humanity
 
 const oMessage = `Dear ${entity.name},%0D%0A%0D%0A
 
