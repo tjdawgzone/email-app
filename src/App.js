@@ -15,6 +15,7 @@ function App() {
   const [entitiesByEmail,setEntitiesByEmail] = useState(null);
   const [entitiesByClass,setEntitiesByClass] = useState(null);
 
+// useEffect scans CSV to get data
 useEffect(()=>{
   Papa.parse(file, {
     download: true,
@@ -48,15 +49,17 @@ useEffect(()=>{
   });
 },[])
 
+// function to send the mailto command and open default mail app
   const sendEmail = (()=>{
-    if(entity.type==="professor"){
-      window.location.href = "mailto:"+entity.email+"?subject=HooHacks For Humanity: COVID-19&body="+pMessage;
+    if(entity.type.toLowerCase()==="professor"){
+      window.location.href = "mailto:"+entity.email+"?subject=Ideathon Registration is Open!&body="+pMessage;
     }
     else{
-      window.location.href = "mailto:"+entity.email+"?subject=HooHacks For Humanity&body="+oMessage;
+      window.location.href = "mailto:"+entity.email+"?subject=Ideathon Registration is Open!&body="+oMessage;
     }
   })
 
+  // this is for organizing the data for react-select
   const setLabel = ((data,type)=>{
     const newArray = [];
       data.forEach((entity)=>{
@@ -72,6 +75,7 @@ useEffect(()=>{
       return newArray;
   })
 
+  // basically formats a professor's classes into an English string
   const formatArray = ((array)=>{
     if(array.length===1)
     return array[0]
@@ -97,28 +101,27 @@ useEffect(()=>{
     }
   })
 
-// Professor Version
+// Professor Message Version
 
 const pMessage = `Dear Professor ${entity.name.split(' ').pop()},%0D%0A%0D%0A
 
-I’m ${myName} from The HooHacks Team, and I would greatly appreciate it if you would take the time to share this wonderful opportunity with your students in ${formatArray(entity.class)}.%0D%0A%0D%0A
+I’m ${myName} from The HooHacks Team, and I’d greatly appreciate it if you would take the time to share this fantastic opportunity with your students in ${formatArray(entity.class)}.%0D%0A%0D%0A
 
-Due to the recent surge in COVID-19 cases in parts of the world such as India, Argentina, and more, The HooHacks Team feels compelled to contribute its resources and platform to combatting the pandemic.  
-This is why we are introducing HooHacks for Humanity: COVID-19, a virtual hackathon and ideathon hybrid event from July 25-31 that serves as a platform for students from all academic backgrounds to utilize their creativity and problem solving abilities to solve/alleviate issues relating to COVID-19.  
-This is a hybrid event as there will be two tracks: one that focuses primarily on the idea (similar to an ideathon), and another that will focus on the implementation of the solution (similar to a hackathon).  
-Solutions could attempt to resolve problems like the efficiency of vaccine distribution, transportation to vaccine centers, or fundraising and awareness; it’s up to the team to define the problem and address it.  
-We will have multiple incredible guest speakers at this event and also mentors that will provide valuable guidance to teams as they formulate their solutions.  
-In addition, the best ideas and solution implementations will win prizes and cash funding!%0D%0A%0D%0A
+The HooHacks Team is proud to announce that registration is open for Ideathon 2021, which will take place in-person on October 2nd!  Ideathon is a networking, team-building, and pitching event designed 
+to help students with technical experience and students with business experience build their technical business idea.  Student teams can meet 1:1 with 
+industry experts about their ideas and form long lasting relationships with them as they continue to grow their ideas. Corporate sponsors will be holding workshops to teach students about pitching their ideas, 
+valuing their potential businesses, and building technical prototypes. There will be a two hour pitching event, where teams will pitch to a board of sponsors for funding.  Teams will have the opportunity to win up to
+$500 worth of seed money to help fund their startup. In total, there will be more than $2000 worth of prizes!%0D%0A%0D%0A
 
-You can sign up today at this link: https://humanity.hoohacks.io/apply %0D%0A%0D%0A
-Learn more about the hackathon at: https://humanity.hoohacks.io/ %0D%0A%0D%0A
+Sign up today at:  https://ideathon.hoohacks.io/apply %0D%0A%0D%0A
+Learn more about the event at: https://ideathon.hoohacks.io/ %0D%0A%0D%0A
 
-Again, thank you for sharing this meaningful opportunity with everyone!  We hope to see everyone there.%0D%0A%0D%0A
+Best Regards,%0D%0A
+${myName}
+`
 
-Sincerely,%0D%0A
-${myName}`
 
-// Organnization Version
+// Organization Message Version
 
 const oMessage = `Dear ${entity.name},%0D%0A%0D%0A
 
