@@ -22,10 +22,8 @@ useEffect(()=>{
     complete: function(results) {
       const array = [];
       results.data.splice(0,1)
-      console.log(results.data)
       results.data.forEach((entity,index)=>{
       if(results.data[index-1]&&(results.data[index-1][1]===entity[1])){
-        console.log(array)
         array[array.length-1].class.push(entity[2])
       }
       else{
@@ -38,7 +36,6 @@ useEffect(()=>{
         array.push(newEntity);
       }
       })
-      console.log(array)
       const array1 = clone(array)
       const array2 = clone(array)
       const array3 = clone(array)
@@ -80,7 +77,6 @@ useEffect(()=>{
     if(array.length===1)
     return array[0]
     else if(array.length===2){
-    console.log(array[0]+" and "+array[1])
     return array[0]+" and "+array[1]
     }
     else{
@@ -90,14 +86,13 @@ useEffect(()=>{
         result = result+" and "+array[x]
       }
       else if(x===0){
-        result = result + array[0]
+        result = result + array[0] + ","
       }
       else{
         result = result + " " + array[x] + ","
       }
-      console.log(result)
-      return result
-    }     
+    }
+    return result;     
     }
   })
 
@@ -155,17 +150,14 @@ ${myName}
       <h2 style={{fontWeight:"300"}}>Name/Organization:</h2>
       <Select placeholder="Name/Organization" value={entity&&{label:entity.name}} onChange={(selectedOption)=>{
         setEntity(selectedOption);
-        console.log('Option selected:', selectedOption)
       }} options={entitiesByName} />
       <h2 style={{fontWeight:"300"}}>Email Address:</h2>
       <Select placeholder="Email Address" value={entity&&{label:entity.email}} onChange={(selectedOption)=>{
         setEntity(selectedOption);
-        console.log('Option selected:', selectedOption)
       }} options={entitiesByEmail} />
       <h2 style={{fontWeight:"300"}}>Class List:</h2>
       <Select value={entity&&{label:formatArray(entity.class)}} onChange={(selectedOption)=>{
         setEntity(selectedOption);
-        console.log('Option selected:', selectedOption)
       }} options={entitiesByClass} />
       <h2 style={{fontWeight:"300"}}>Your Name:</h2>
       <TextField placeholder="Name" style={{width:200}}onChange={(evt)=>{
