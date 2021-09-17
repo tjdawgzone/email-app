@@ -113,6 +113,8 @@ $500 worth of seed money to help fund their startup. In total, there will be mor
 Sign up today at:  https://ideathon.hoohacks.io/apply %0D%0A%0D%0A
 Learn more about the event at: https://ideathon.hoohacks.io/ %0D%0A%0D%0A
 
+Thank you so much!%0D%0A%0D%0A
+
 Best Regards,%0D%0A
 ${myName}
 `
