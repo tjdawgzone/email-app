@@ -9,6 +9,7 @@ import clone from 'just-clone';
 
 
 function App() {
+  // initialize states
   const [entity,setEntity] = useState({name:"",class:"",type:"",email:""})
   const [myName,setMyName] = useState("")
   const [entitiesByName,setEntitiesByName] = useState(null);
@@ -19,15 +20,15 @@ function App() {
 useEffect(()=>{
   Papa.parse(file, {
     download: true,
-    complete: function(results) {
-      const array = [];
-      results.data.splice(0,1)
-      results.data.forEach((entity,index)=>{
-      if(results.data[index-1]&&(results.data[index-1][1]===entity[1])){
-        array[array.length-1].class.push(entity[2])
+    complete: function(results) { // this is a function that we'll use to get the data from the CSV and format it for our site
+      const array = []; // stores entities
+      results.data.splice(0,1) // gets rid of first row (column titles)
+      results.data.forEach((entity,index)=>{ // accesses the array of data (indexed by rows) in results
+      if(results.data[index-1]&&(results.data[index-1][1]===entity[1])){ // checks if the previous row was the same person
+        array[array.length-1].class.push(entity[2]) // if condition met, only adds class of current row to class array of previous row
       }
       else{
-        const newEntity={
+        const newEntity={ // each person/org is stored as an entity object
           type:entity[0],
           name:entity[1],
           class:[entity[2]], 
@@ -36,12 +37,13 @@ useEffect(()=>{
         array.push(newEntity);
       }
       })
+      // once all of the relevant rows have been parsed, we deep clone the array 3 times
       const array1 = clone(array)
       const array2 = clone(array)
       const array3 = clone(array)
-      setEntitiesByName(setLabel(array1,"name"));
-      setEntitiesByClass(setLabel(array2,"class"));
-      setEntitiesByEmail(setLabel(array3,"email"));
+      setEntitiesByName(setLabel(array1,"name")); // set label will return an array where the object's label is the name
+      setEntitiesByClass(setLabel(array2,"class")); // set label will return an array where the object's label is the class
+      setEntitiesByEmail(setLabel(array3,"email")); // set label will return an array where the object's label is the email
     }
   });
 },[])
@@ -138,7 +140,7 @@ Again, thank you for sharing this meaningful opportunity with everyone!  We hope
 Sincerely,%0D%0A
 ${myName}
   `
-
+  // This is what's rendered on the website
   return (
     <div class="center" style={{justifyContent:"center"}}>
       <Card elevation="13"style={{marginTop:"10%", marginBottom:"5%",height:"auto",width:"auto"}}>
