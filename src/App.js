@@ -107,7 +107,7 @@ I’m ${myName} from The HooHacks Team, and I’d greatly appreciate it if you w
 The HooHacks Team is proud to announce that registration is open for Ideathon 2021, which will take place in-person on October 2nd!  Ideathon is a networking, team-building, and pitching event designed 
 to help students with technical experience and students with business experience build their technical business idea.  Student teams can meet 1:1 with 
 industry experts about their ideas and form long lasting relationships with them as they continue to grow their ideas. Corporate sponsors will be holding workshops to teach students about pitching their ideas, 
-valuing their potential businesses, and building technical prototypes. There will be a two hour pitching event, where teams will pitch to a board of sponsors for funding.  Teams will have the opportunity to win up to
+valuing their potential businesses, and building technical prototypes. There will be a two hour pitching event, where teams will pitch to a board of sponsors for funding.  Teams will have the opportunity to win up to 
 $500 worth of seed money to help fund their startup. In total, there will be more than $2000 worth of prizes!%0D%0A%0D%0A
 
 Sign up today at:  https://ideathon.hoohacks.io/apply %0D%0A%0D%0A
