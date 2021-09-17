@@ -51,10 +51,10 @@ useEffect(()=>{
 // function to send the mailto command and open default mail app
   const sendEmail = (()=>{
     if(entity.type.toLowerCase()==="professor"){
-      window.location.href = "mailto:"+entity.email+"?subject=Ideathon Registration is Open!&body="+pMessage;
+      window.location.href = "mailto:"+entity.email+"?subject=Opportunity for Students, Please Pass Along - Ideathon&body="+pMessage;
     }
     else{
-      window.location.href = "mailto:"+entity.email+"?subject=Ideathon Registration is Open!&body="+oMessage;
+      window.location.href = "mailto:"+entity.email+"?subject=Opportunity for Students, Please Pass Along - Ideathon&body="+oMessage;
     }
   })
 
